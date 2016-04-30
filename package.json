@@ -4,8 +4,14 @@
   "description": "Flux sample",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build"
   },
   "author": "sota1235",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "run-sequence": "^1.1.5"
+  }
 }
