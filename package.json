@@ -1,0 +1,11 @@
+{
+  "name": "flux_samples",
+  "version": "0.0.1",
+  "description": "Flux sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sota1235",
+  "license": "MIT"
+}
