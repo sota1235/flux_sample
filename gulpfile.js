@@ -36,7 +36,10 @@ gulp.task('es2015', () => {
   })
     .transform(babelify, {
       presets: ['es2015', 'react'],
-      plugins: ['transform-react-display-name']
+      plugins: [
+        'transform-react-display-name',
+        'transform-object-assign'
+      ]
     })
     .bundle()
     .pipe(source('main.js'))
