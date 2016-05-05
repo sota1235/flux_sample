@@ -7,10 +7,10 @@ import { clone } from 'lodash';
 
 export default class BaseStore extends EventEmitter22 {
   /**
-   * @param {EventEmitter2} emitter
+   * @param {EventEmitter2} dispatcher
    * @param {Object} defaultData
    */
-  constructor(emitter, defaultData = {}) {
+  constructor(dispatcher, defaultData = {}) {
     super();
 
     this.eventName = 'DATA_CHANGED';
