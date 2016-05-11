@@ -15,7 +15,7 @@ export default class AppComponent extends React.Component {
       <div id="app">
         <h1>Todo Application Sample</h1>
         <TodoListComponent todos={[]} />
-        <FormComponent />
+        <FormComponent handleOnClick={(text) => console.log(`create todo: ${text}`)} />
       </div>
     );
   }
