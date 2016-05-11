@@ -5,7 +5,7 @@
 import { EventEmitter2 } from 'eventemitter2';
 import { clone } from 'lodash';
 
-export default class BaseStore extends EventEmitter22 {
+export default class BaseStore extends EventEmitter2 {
   /**
    * @param {EventEmitter2} dispatcher
    * @param {Object} defaultData

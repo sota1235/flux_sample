@@ -17,7 +17,7 @@ export default class TodoListComponent extends React.Component {
   render() {
     return (
       <ul>
-        {this.state.todoso.map(todo =>
+        {this.state.todos.map(todo =>
           <TodoComponent
             id={todo.id}
             text={todo.text}
