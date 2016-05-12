@@ -10,7 +10,7 @@ export default class TodoStore extends BaseStore {
    * @param {EventEmitter2} dispatcher
    * @param {Object} defaultData
    */
-  constructor(dispatcher, defaultData = {}) {
+  constructor(dispatcher, defaultData = []) {
     super(dispatcher, defaultData);
 
     this.dispatcher.on('ADD_TODO', this.addTodo.bind(this));
@@ -21,7 +21,7 @@ export default class TodoStore extends BaseStore {
    */
   addTodo(text) {
     const id = uniqueId();
-    this.data = Object.assign({}, this.data, { text, id });
+    this.data = this.data.push({ id, text });
     this.emitChangeEvent();
   }
 

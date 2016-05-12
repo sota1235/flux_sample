@@ -13,8 +13,9 @@ export default class BaseStore extends EventEmitter2 {
   constructor(dispatcher, defaultData = {}) {
     super();
 
-    this.eventName = 'DATA_CHANGED';
-    this.data      = Object.assign({}, defaultData);
+    this.dispatcher = dispatcher;
+    this.eventName  = 'DATA_CHANGED';
+    this.data       = defaultData;
   }
 
   /**
