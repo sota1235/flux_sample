@@ -9,16 +9,13 @@ export default class TodoComponent extends React.Component {
     super(props);
 
     this.state = {
-      id: this.props.id,
       text: this.props.text,
     };
   }
 
   render() {
     return (
-      <li key={this.state.id}>
-        {this.state.text}
-      </li>
+      <li>{this.state.text}</li>
     );
   }
 }

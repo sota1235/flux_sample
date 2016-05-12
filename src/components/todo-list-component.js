@@ -19,7 +19,7 @@ export default class TodoListComponent extends React.Component {
       <ul>
         {this.state.todos.map(todo =>
           <TodoComponent
-            id={todo.id}
+            key={todo.id}
             text={todo.text}
           />
         )}

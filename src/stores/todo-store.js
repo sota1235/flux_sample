@@ -21,7 +21,7 @@ export default class TodoStore extends BaseStore {
    */
   addTodo(text) {
     const id = uniqueId();
-    this.data = this.data.push({ id, text });
+    this.data.push({ id, text });
     this.emitChangeEvent();
   }
 
