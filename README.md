@@ -5,6 +5,8 @@ Flux samples
 
 ### Demo
 
+![](https://i.gyazo.com/cb84a589baaec952b9f8e3e59fc2eaee.gif)
+
 ### Requirement
 
 - node.js
