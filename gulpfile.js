@@ -25,6 +25,12 @@ gulp.task('export-node-modules', () => {
   }
 });
 
+// export tags for riot.js
+gulp.task('riot-tag', () => {
+  gulp.src('src/tags/*.tag')
+    .pipe(gulp.dest('public/js/tags'));
+});
+
 // compile js for react
 gulp.task('react', () => {
   const scripts = glob.sync('./src/*.js');
@@ -48,5 +54,5 @@ gulp.task('react', () => {
 
 // default build task
 gulp.task('build', (cb) => {
-  return runSequence('clean', 'export-node-modules', 'react', cb);
+  return runSequence('clean', 'export-node-modules', 'react', 'riot-tag', cb);
 });
