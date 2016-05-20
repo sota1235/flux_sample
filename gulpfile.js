@@ -6,6 +6,7 @@ const runSequence = require('run-sequence');
 const browserify  = require('browserify');
 const watchify    = require('watchify');
 const babelify    = require('babelify');
+const riotify     = require('riotify');
 const source      = require('vinyl-source-stream');
 const glob        = require('glob');
 
@@ -20,25 +21,16 @@ gulp.task('export-node-modules', () => {
   ];
 
   for(let exportModule of exportModules) {
-    gulp.src(`node_modules/${exportModule}/**/*`)
+    gulp.src('node_modules/${exportModule}/**/*')
       .pipe(gulp.dest('app/node_modules'));
   }
 });
 
-// export tags for riot.js
-gulp.task('riot-tag', () => {
-  gulp.src('src/tags/*.tag')
-    .pipe(gulp.dest('public/js/tags'));
-});
-
 // compile js for react
 gulp.task('react', () => {
-  const scripts = glob.sync('./src/*.js');
-
   browserify({
-    debug     : true,
-    entries   : scripts,
-    extensions: ['.js']
+    debug   : true,
+    entries : ['src/react.js'],
   })
     .transform(babelify, {
       presets: ['es2015', 'react'],
@@ -52,7 +44,22 @@ gulp.task('react', () => {
     .pipe(gulp.dest('./public/js'));
 });
 
+// compile js for riot
+gulp.task('riot', () => {
+  browserify({
+    debug     : true,
+    entries   : 'src/riot.js',
+    extension : ['.js', '.tag'],
+  })
+    .transform(riotify, {
+      type: 'es6',
+    })
+    .bundle()
+    .pipe(source('riot.js'))
+    .pipe(gulp.dest('./public/js'));
+});
+
 // default build task
 gulp.task('build', (cb) => {
-  return runSequence('clean', 'export-node-modules', 'react', 'riot-tag', cb);
+  return runSequence('clean', 'export-node-modules', 'react', 'riot', cb);
 });
