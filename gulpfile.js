@@ -25,8 +25,8 @@ gulp.task('export-node-modules', () => {
   }
 });
 
-// compile es2015
-gulp.task('es2015', () => {
+// compile js for react
+gulp.task('react', () => {
   const scripts = glob.sync('./src/*.js');
 
   browserify({
@@ -42,11 +42,11 @@ gulp.task('es2015', () => {
       ]
     })
     .bundle()
-    .pipe(source('main.js'))
+    .pipe(source('react.js'))
     .pipe(gulp.dest('./public/js'));
 });
 
 // default build task
 gulp.task('build', (cb) => {
-  return runSequence('clean', 'export-node-modules', 'es2015', cb);
+  return runSequence('clean', 'export-node-modules', 'react', cb);
 });
