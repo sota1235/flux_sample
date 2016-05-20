@@ -9,4 +9,4 @@
     <input type="text" placeholder="Enter todo description">
     <button onClick={ handleOnClick }>Add new todo</button>
   </div>
-<todo>
+</todo>
