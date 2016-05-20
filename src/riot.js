@@ -2,7 +2,7 @@
  * @description Main file for riot.js sample.
  */
 
-var riot  = require('riot');
-var todos = require('./tags/todos.tag');
+import riot  from 'riot';
+import todos from './tags/todos.tag';
 
 riot.mount('div#app-mount', todos);
