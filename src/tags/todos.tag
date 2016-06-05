@@ -19,12 +19,11 @@
     const action     = new TodoAction(dispatcher);
     const store      = new TodoStore(dispatcher);
 
-    this.todos = store.getAll();
+    let todos = store.getAll();
 
     store.on('DATA_CHANGED', () => {
-      this.data = store.getAll();
-      console.log(this, this.data);
-      this.update();
+      todos = store.getAll();
+      update();
     });
 
     /**
