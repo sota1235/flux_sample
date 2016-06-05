@@ -51,12 +51,12 @@ gulp.task('riot', () => {
     entries   : 'src/riot.js',
     extension : ['.js', '.tag'],
   })
-    .transform(babelify, {
-      presets: ['es2015'],
+   .transform(babelify, {
+      presets: ['es2015', 'es2015-riot'],
       plugins: ['transform-object-assign'],
     })
     .transform(riotify, {
-      type : 'es6',
+      type : 'babel',
       ext  : '.tag',
     })
     .bundle()
