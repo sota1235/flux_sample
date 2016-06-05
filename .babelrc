@@ -1,0 +1,9 @@
+{
+  "presets": [
+    "es2015", "react", "es2015-riot"
+  ],
+  "plugins": [
+    "transform-react-display-name",
+    "transform-object-assign"
+  ]
+}

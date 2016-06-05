@@ -32,13 +32,7 @@ gulp.task('react', () => {
     debug   : true,
     entries : ['src/react.js'],
   })
-    .transform(babelify, {
-      presets: ['es2015', 'react'],
-      plugins: [
-        'transform-react-display-name',
-        'transform-object-assign'
-      ]
-    })
+    .transform(babelify)
     .bundle()
     .pipe(source('react.js'))
     .pipe(gulp.dest('./public/js'));
@@ -51,10 +45,7 @@ gulp.task('riot', () => {
     entries   : 'src/riot.js',
     extension : ['.js', '.tag'],
   })
-    .transform(babelify, {
-      presets: ['es2015', 'es2015-riot'],
-      plugins: ['transform-object-assign'],
-    })
+    .transform(babelify)
     .transform(riotify, {
       type : 'babel',
       ext  : '.tag',
