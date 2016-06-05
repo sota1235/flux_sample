@@ -4,7 +4,9 @@
   "description": "Flux sample",
   "main": "index.js",
   "scripts": {
-    "build": "gulp build"
+    "build": "gulp build",
+    "build-react": "gulp react",
+    "build-riot": "gulp riot"
   },
   "author": "sota1235",
   "license": "MIT",
