@@ -56,6 +56,6 @@ gulp.task('riot', () => {
 });
 
 // default build task
-gulp.task('build', (cb) => {
+gulp.task('build', cb => {
   return runSequence('clean', 'export-node-modules', 'react', 'riot', cb);
 });
